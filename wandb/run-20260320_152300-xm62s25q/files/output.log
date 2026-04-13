@@ -1,0 +1,86 @@
+Train: [1][10/27]	BT 0.401 (6.488)	DT 0.000 (3.628)	loss 6.236 (6.286)
+Train: [1][20/27]	BT 0.402 (3.445)	DT 0.000 (1.814)	loss 6.236 (6.261)
+Train epoch 1, total time 98.44, loss 6.250
+Train: [2][10/27]	BT 0.401 (3.042)	DT 0.000 (2.602)	loss 6.236 (6.236)
+Train: [2][20/27]	BT 0.402 (2.078)	DT 0.000 (1.657)	loss 6.236 (6.236)
+Train epoch 2, total time 44.07, loss 6.231
+Train: [3][10/27]	BT 0.402 (0.824)	DT 0.000 (0.421)	loss 6.236 (6.236)
+Train: [3][20/27]	BT 0.402 (0.613)	DT 0.000 (0.210)	loss 6.236 (6.236)
+Train epoch 3, total time 14.80, loss 6.231
+Train: [4][10/27]	BT 0.402 (0.842)	DT 0.000 (0.438)	loss 6.236 (6.236)
+Train: [4][20/27]	BT 0.401 (0.621)	DT 0.000 (0.219)	loss 6.236 (6.236)
+Train epoch 4, total time 14.94, loss 6.231
+Train: [5][10/27]	BT 0.402 (0.924)	DT 0.000 (0.521)	loss 6.236 (6.236)
+Train: [5][20/27]	BT 0.401 (0.663)	DT 0.000 (0.260)	loss 6.236 (6.236)
+Train epoch 5, total time 15.79, loss 6.231
+Train: [6][10/27]	BT 0.401 (0.898)	DT 0.000 (0.495)	loss 6.236 (6.236)
+Train: [6][20/27]	BT 0.402 (0.650)	DT 0.000 (0.248)	loss 6.236 (6.236)
+Train epoch 6, total time 15.52, loss 6.231
+Train: [7][10/27]	BT 0.402 (0.933)	DT 0.000 (0.530)	loss 6.236 (6.236)
+Train: [7][20/27]	BT 0.402 (0.667)	DT 0.000 (0.265)	loss 6.236 (6.236)
+Train epoch 7, total time 15.85, loss 6.231
+Train: [8][10/27]	BT 0.401 (0.896)	DT 0.000 (0.493)	loss 6.236 (6.236)
+Train: [8][20/27]	BT 0.402 (0.649)	DT 0.000 (0.246)	loss 6.236 (6.236)
+Train epoch 8, total time 15.49, loss 6.231
+Train: [9][10/27]	BT 0.402 (0.880)	DT 0.000 (0.477)	loss 6.236 (6.236)
+Train: [9][20/27]	BT 0.402 (0.641)	DT 0.000 (0.238)	loss 6.236 (6.236)
+Train epoch 9, total time 15.32, loss 6.231
+Train: [10][10/27]	BT 0.401 (0.859)	DT 0.000 (0.455)	loss 6.236 (6.236)
+Train: [10][20/27]	BT 0.402 (0.630)	DT 0.000 (0.227)	loss 6.236 (6.236)
+Train epoch 10, total time 15.12, loss 6.231
+Train: [11][10/27]	BT 0.402 (0.859)	DT 0.000 (0.455)	loss 6.236 (6.236)
+Train: [11][20/27]	BT 0.402 (0.631)	DT 0.000 (0.227)	loss 6.236 (6.236)
+Train epoch 11, total time 15.11, loss 6.231
+Train: [12][10/27]	BT 0.402 (0.971)	DT 0.000 (0.567)	loss 6.236 (6.236)
+Train: [12][20/27]	BT 0.402 (0.687)	DT 0.000 (0.284)	loss 6.236 (6.236)
+Train epoch 12, total time 16.23, loss 6.231
+Train: [13][10/27]	BT 0.401 (0.930)	DT 0.000 (0.527)	loss 6.235 (6.236)
+Train: [13][20/27]	BT 0.402 (0.666)	DT 0.000 (0.264)	loss 6.236 (6.236)
+Train epoch 13, total time 15.82, loss 6.231
+Train: [14][10/27]	BT 0.402 (0.854)	DT 0.000 (0.450)	loss 6.235 (6.236)
+Train: [14][20/27]	BT 0.402 (0.628)	DT 0.000 (0.225)	loss 6.235 (6.236)
+Train epoch 14, total time 15.06, loss 6.231
+Train: [15][10/27]	BT 0.403 (0.857)	DT 0.000 (0.454)	loss 6.233 (6.235)
+Train: [15][20/27]	BT 0.402 (0.630)	DT 0.000 (0.227)	loss 6.233 (6.235)
+Train epoch 15, total time 15.10, loss 6.229
+Train: [16][10/27]	BT 0.404 (0.893)	DT 0.000 (0.486)	loss 6.230 (6.232)
+Train: [16][20/27]	BT 0.403 (0.648)	DT 0.000 (0.243)	loss 6.225 (6.228)
+Train epoch 16, total time 15.50, loss 6.219
+Train: [17][10/27]	BT 0.403 (0.997)	DT 0.000 (0.594)	loss 6.191 (6.197)
+Train: [17][20/27]	BT 0.402 (0.699)	DT 0.000 (0.297)	loss 6.152 (6.177)
+Train epoch 17, total time 16.49, loss 6.151
+Train: [18][10/27]	BT 0.404 (0.877)	DT 0.000 (0.472)	loss 6.035 (6.085)
+Train: [18][20/27]	BT 0.405 (0.640)	DT 0.000 (0.236)	loss 5.964 (6.052)
+Train epoch 18, total time 15.33, loss 6.039
+Traceback (most recent call last):
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 956, in <module>
+    main()
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 926, in main
+    loss = train(train_loader, model, optimizer, epoch, args, scaler)
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 821, in train
+    loss = model.compute_ssl_loss(img1, img2)
+  File "/mnt/disk3/tinvt/openssl-simcore/ssl_core/simclr.py", line 117, in compute_ssl_loss
+    loss = self.ssl_loss_fn(p1, p2)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/disk3/tinvt/openssl-simcore/ssl_core/simclr.py", line 80, in forward
+    mask = self._get_correlated_mask(batch_size).to(device)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 956, in <module>
+    main()
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 926, in main
+    loss = train(train_loader, model, optimizer, epoch, args, scaler)
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 821, in train
+    loss = model.compute_ssl_loss(img1, img2)
+  File "/mnt/disk3/tinvt/openssl-simcore/ssl_core/simclr.py", line 117, in compute_ssl_loss
+    loss = self.ssl_loss_fn(p1, p2)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/disk3/tinvt/openssl-simcore/ssl_core/simclr.py", line 80, in forward
+    mask = self._get_correlated_mask(batch_size).to(device)
+KeyboardInterrupt

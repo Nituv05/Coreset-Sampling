@@ -23,7 +23,7 @@ def random_sampling(model, args):
 
 
 # greedy selection algorithm for SimCore algorithm
-def greedy(sim, sampling_nums=0):
+def greedy(sim, args, sampling_nums=0):
     N, K = sim.shape
     queue_list = [deque(torch.argsort(sim[:,k], descending=True).numpy()) for k in range(K)]
     indices, tmp = set(), set()
@@ -115,7 +115,7 @@ def simcore_sampling(model, args):
         print('Cosine similarity matrix is computed...')
         
         # get the solution of facility location problem in an iterative fashion
-        selected_indices = greedy(sim.T.cpu(), sampling_nums=sampling_nums) # sim.shape == (# of openset, # of centroids)
+        selected_indices = greedy(sim.T.cpu(), args, sampling_nums=sampling_nums) # sim.shape == (# of openset, # of centroids)
         print('Complete! {:d} number of indices sampled from {:s}.'.format(len(selected_indices), args.dataset2))
         del dataloader2
         
@@ -130,7 +130,7 @@ def get_selected_indices(model, args):
         pass
     elif args.retrieval_ckpt is not None:
         print('pretrained retrieval model loaded from: {}'.format(args.retrieval_ckpt))
-        model.load_state_dict(torch.load(args.retrieval_ckpt)['model'])
+        model.load_state_dict(torch.load(args.retrieval_ckpt, weights_only=False)['model'])
     elif args.from_ssl_official:
         print('pretrained retrieval model loaded from SimCLR ImageNet-pretrained official checkpoint')
         assert args.method == 'simclr' and args.model == 'resnet50'

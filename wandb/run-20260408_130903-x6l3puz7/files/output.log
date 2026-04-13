@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 475, in <module>
+    main()
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 432, in main
+    train_loader = set_loader(args)
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 282, in set_loader
+    train_dataset = get_dataset(args, args.dataset, args.data_folder)
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 235, in get_dataset
+    train_dataset = datasets.ImageFolder(root=traindir,
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 328, in __init__
+    super().__init__(
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 149, in __init__
+    classes, class_to_idx = self.find_classes(self.root)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 234, in find_classes
+    return find_classes(directory)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 41, in find_classes
+    classes = sorted(entry.name for entry in os.scandir(directory) if entry.is_dir())
+FileNotFoundError: [Errno 2] No such file or directory: './data/cars/train'
+Traceback (most recent call last):
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 475, in <module>
+    main()
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 432, in main
+    train_loader = set_loader(args)
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 282, in set_loader
+    train_dataset = get_dataset(args, args.dataset, args.data_folder)
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 235, in get_dataset
+    train_dataset = datasets.ImageFolder(root=traindir,
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 328, in __init__
+    super().__init__(
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 149, in __init__
+    classes, class_to_idx = self.find_classes(self.root)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 234, in find_classes
+    return find_classes(directory)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 41, in find_classes
+    classes = sorted(entry.name for entry in os.scandir(directory) if entry.is_dir())
+FileNotFoundError: [Errno 2] No such file or directory: './data/cars/train'

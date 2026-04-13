@@ -1,0 +1,23 @@
+2026-04-01 14:29:11,824 INFO    MainThread:3204502 [wandb_setup.py:_flush():80] Current SDK version is 0.23.1
+2026-04-01 14:29:11,824 INFO    MainThread:3204502 [wandb_setup.py:_flush():80] Configure stats pid to 3204502
+2026-04-01 14:29:11,824 INFO    MainThread:3204502 [wandb_setup.py:_flush():80] Loading settings from /home/vaipe/.config/wandb/settings
+2026-04-01 14:29:11,824 INFO    MainThread:3204502 [wandb_setup.py:_flush():80] Loading settings from /mnt/disk3/tinvt/openssl-simcore/wandb/settings
+2026-04-01 14:29:11,824 INFO    MainThread:3204502 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2026-04-01 14:29:11,824 INFO    MainThread:3204502 [wandb_init.py:setup_run_log_directory():714] Logging user logs to /mnt/disk3/tinvt/openssl-simcore/wandb/run-20260401_142911-xqx0p2p7/logs/debug.log
+2026-04-01 14:29:11,824 INFO    MainThread:3204502 [wandb_init.py:setup_run_log_directory():715] Logging internal logs to /mnt/disk3/tinvt/openssl-simcore/wandb/run-20260401_142911-xqx0p2p7/logs/debug-internal.log
+2026-04-01 14:29:11,824 INFO    MainThread:3204502 [wandb_init.py:init():841] calling init triggers
+2026-04-01 14:29:11,824 INFO    MainThread:3204502 [wandb_init.py:init():846] wandb.init called with sweep_config: {}
+config: {'seed': 0, 'print_freq': 10, 'save_freq': 1000, 'save_dir': './save', 'tag': 'vanilla', 'resume': None, 'optimizer': 'sgd', 'epochs': 200, 'learning_rate': 0.05, 'lr_decay_epochs': [200, 300], 'lr_decay_rate': 0.1, 'weight_decay': 0.0001, 'momentum': 0.9, 'cosine': True, 'precision': True, 'warm': False, 'warm_epochs': 0, 'dataset': 'imagenet', 'data_folder': './data/CLS-LOC', 'batch_size': 64, 'num_workers': 16, 'img_size': 224, 'merge_dataset': False, 'dataset1': None, 'data_folder1': None, 'dataset2': None, 'data_folder2': None, 'model': 'resnet50', 'method': 'simclr', 'ema_scheduler': True, 'initial_ema': 0.996, 'temp_warmup_epochs': 0, 'initial_temp': 0.04, 'weight_decay_end': 0, 'clip_grad': 0, 'prototypes': 100, 'freeze_prototypes': 1, 'freeze_last_layer': 0, 'local_crops_number': 0, 'mask_ratio': 0.75, 'norm_pix_loss': False, 'no_sampling': True, 'sampling_method': 'simcore', 'retrieval_ckpt': None, 'sampling_ratio': 0.0, 'sampling_times': 1, 'cluster_num': 100, 'stop': False, 'stop_thresh': 0.95, 'patience': 20, 'from_ssl_official': False, 'wd_scheduler': False, 'model_name': 'imagenet_resnet50_pretrain_simclr_vanilla', 'save_folder': './save/imagenet_resnet50_pretrain_simclr_vanilla', 'n_cls': 1000, '_wandb': {}}
+2026-04-01 14:29:11,824 INFO    MainThread:3204502 [wandb_init.py:init():889] starting backend
+2026-04-01 14:29:12,048 INFO    MainThread:3204502 [wandb_init.py:init():892] sending inform_init request
+2026-04-01 14:29:12,050 INFO    MainThread:3204502 [wandb_init.py:init():900] backend started and connected
+2026-04-01 14:29:12,050 INFO    MainThread:3204502 [wandb_init.py:init():970] updated telemetry
+2026-04-01 14:29:12,052 INFO    MainThread:3204502 [wandb_init.py:init():994] communicating run to backend with 90.0 second timeout
+2026-04-01 14:29:13,141 INFO    MainThread:3204502 [wandb_init.py:init():1041] starting run threads in backend
+2026-04-01 14:29:13,186 INFO    MainThread:3204502 [wandb_run.py:_console_start():2521] atexit reg
+2026-04-01 14:29:13,186 INFO    MainThread:3204502 [wandb_run.py:_redirect():2369] redirect: wrap_raw
+2026-04-01 14:29:13,186 INFO    MainThread:3204502 [wandb_run.py:_redirect():2438] Wrapping output streams.
+2026-04-01 14:29:13,186 INFO    MainThread:3204502 [wandb_run.py:_redirect():2461] Redirects installed.
+2026-04-01 14:29:13,187 INFO    MainThread:3204502 [wandb_init.py:init():1081] run started, returning control to user process
+2026-04-02 06:20:40,647 INFO    wandb-AsyncioManager-main:3204502 [service_client.py:_forward_responses():80] Reached EOF.
+2026-04-02 06:20:40,659 INFO    wandb-AsyncioManager-main:3204502 [mailbox.py:close():137] Closing mailbox, abandoning 1 handles.

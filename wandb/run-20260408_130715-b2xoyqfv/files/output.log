@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 463, in <module>
+    main()
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 424, in main
+    model, classifier, criterion, optimizer = set_model(args)
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 235, in set_model
+    ckpt = torch.load(args.pretrained_ckpt, map_location='cpu', weights_only=False)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 1484, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 759, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 740, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/disk3/tinvt/openssl-simcore/save/aircraft_resnet50_pretrain_simclr_merge_imagenet_TEST_simcore/last.pth'
+Traceback (most recent call last):
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 463, in <module>
+    main()
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 424, in main
+    model, classifier, criterion, optimizer = set_model(args)
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 235, in set_model
+    ckpt = torch.load(args.pretrained_ckpt, map_location='cpu', weights_only=False)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 1484, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 759, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 740, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/disk3/tinvt/openssl-simcore/save/aircraft_resnet50_pretrain_simclr_merge_imagenet_TEST_simcore/last.pth'

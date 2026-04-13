@@ -1,0 +1,15 @@
+{"time":"2026-03-27T23:00:26.720029383+07:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2026-03-27T23:00:27.322569239+07:00","level":"INFO","msg":"stream: created new stream","id":"tmvgkdad"}
+{"time":"2026-03-27T23:00:27.329218421+07:00","level":"INFO","msg":"stream: started","id":"tmvgkdad"}
+{"time":"2026-03-27T23:00:27.329289262+07:00","level":"INFO","msg":"handler: started","stream_id":"tmvgkdad"}
+{"time":"2026-03-27T23:00:27.329310663+07:00","level":"INFO","msg":"writer: started","stream_id":"tmvgkdad"}
+{"time":"2026-03-27T23:00:27.32931728+07:00","level":"INFO","msg":"sender: started","stream_id":"tmvgkdad"}
+{"time":"2026-03-27T23:03:10.259437853+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/tinbgbg05-ai4life/SimCore-Reproduce/tmvgkdad/file_stream\": dial tcp: lookup api.wandb.ai on 127.0.0.53:53: read udp 127.0.0.1:41960->127.0.0.53:53: i/o timeout"}
+{"time":"2026-03-27T23:07:04.288389248+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/tinbgbg05-ai4life/SimCore-Reproduce/tmvgkdad/file_stream\": dial tcp: lookup api.wandb.ai on 127.0.0.53:53: read udp 127.0.0.1:40621->127.0.0.53:53: i/o timeout"}
+{"time":"2026-03-27T23:07:16.697422242+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/tinbgbg05-ai4life/SimCore-Reproduce/tmvgkdad/file_stream\": dial tcp: lookup api.wandb.ai on 127.0.0.53:53: read udp 127.0.0.1:44167->127.0.0.53:53: i/o timeout"}
+{"time":"2026-03-27T23:34:40.343377863+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/tinbgbg05-ai4life/SimCore-Reproduce/tmvgkdad/file_stream\": dial tcp: lookup api.wandb.ai on 127.0.0.53:53: read udp 127.0.0.1:40600->127.0.0.53:53: i/o timeout"}
+{"time":"2026-03-27T23:49:55.14504134+07:00","level":"INFO","msg":"stream: closing","id":"tmvgkdad"}
+{"time":"2026-03-27T23:49:56.482911723+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-03-27T23:49:59.57772546+07:00","level":"INFO","msg":"handler: closed","stream_id":"tmvgkdad"}
+{"time":"2026-03-27T23:49:59.577993971+07:00","level":"INFO","msg":"sender: closed","stream_id":"tmvgkdad"}
+{"time":"2026-03-27T23:49:59.578009618+07:00","level":"INFO","msg":"stream: closed","id":"tmvgkdad"}

@@ -11,6 +11,7 @@ import random
 import argparse
 import numpy as np
 
+import wandb
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -18,7 +19,7 @@ import torch.backends.cudnn as cudnn
 from torchvision import models, transforms, datasets
 
 from models import get_backbone_class
-from ssl import get_method_class
+from ssl_core import get_method_class
 from util.imagenet_subset import ImageNetSubset
 from util.merge_dataset import MergeDataset, MergeAllDataset
 from util.transform import TwoCropTransform, MultiCropTransform, MAETransform
@@ -243,7 +244,7 @@ def set_model(args):
     backbone = get_backbone_class(args.model)()
     model = get_method_class(args.method)(backbone, args)
 
-    if torch.cuda.device_count() > 1:
+    if torch.cuda.device_count() >= 1:
         model._data_parallel()
     model.cuda()
     
@@ -382,6 +383,9 @@ def main():
     args = parse_args()
     with open(os.path.join(args.save_folder, 'train_args.json'), 'w') as f:
         json.dump(vars(args), f, indent=4)
+        
+    ### THÊM WANDB BƯỚC 2: Khởi tạo Project (Tự động lấy tên cấu hình làm tên run) ###
+    wandb.init(project="SimCore-Aircraft", name=args.model_name, config=vars(args))
 
     # fix seed
     random.seed(args.seed)
@@ -444,6 +448,14 @@ def main():
 
         time2 = time.time()
         print('Train epoch {}, total time {:.2f}, loss {:.3f}'.format(epoch, time2-time1, loss))
+        
+        ### THÊM WANDB BƯỚC 3: Đẩy số liệu lên Dashboard sau mỗi Epoch ###
+        wandb.log({
+            "Epoch": epoch,
+            "Train Loss": loss,
+            "Learning Rate": optimizer.param_groups[0]['lr'],
+        })
+
         if epoch % args.save_freq == 0:
             save_file = os.path.join(args.save_folder, 'epoch_{}.pth'.format(epoch))
             save_model(model, optimizer, args, epoch, save_file, indices=selected_indices)
@@ -457,8 +469,7 @@ def main():
             train_loader = set_loader_with_indices(selected_indices, args)
 
     save_file = os.path.join(args.save_folder, 'last.pth')
-    save_model(model, optimizer, args, epoch, save_file)
-          
-
+    save_model(model, optimizer, args, epoch, save_file, indices=selected_indices)
+    wandb.finish()
 if __name__ == '__main__':
     main()

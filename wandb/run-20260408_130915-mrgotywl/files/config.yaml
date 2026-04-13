@@ -1,0 +1,143 @@
+_wandb:
+    value:
+        cli_version: 0.23.1
+        e:
+            hy2fq1h084kstngevrjpyeahd2g9840a:
+                args:
+                    - --tag
+                    - TEST_eval
+                    - --dataset
+                    - aircraft
+                    - --model
+                    - resnet50
+                    - --batch_size
+                    - "128"
+                    - --data_folder
+                    - ./data/
+                    - --pretrained
+                    - --pretrained_ckpt
+                    - /mnt/disk3/tinvt/openssl-simcore/save/aircraft_resnet50_pretrain_simclr_merge_imagenet_TEST_simcore/last.pth
+                    - --method
+                    - simclr
+                    - --epochs
+                    - "2"
+                    - --learning_rate
+                    - "10"
+                    - --weight_decay
+                    - "0"
+                    - --num_workers
+                    - "16"
+                codePath: train_sup.py
+                codePathLocal: train_sup.py
+                email: tinbgbg05@gmail.com
+                executable: /mnt/disk1/miniconda3/envs/tindl/bin/python
+                git:
+                    commit: 97b4c9e6492a24d833d6391f203dad1793a08aa6
+                    remote: https://github.com/sungnyun/openssl-simcore
+                host: vaipe-Z790-UD-AX
+                os: Linux-5.15.0-139-generic-x86_64-with-glibc2.31
+                program: /mnt/disk3/tinvt/openssl-simcore/train_sup.py
+                python: CPython 3.10.12
+                root: /mnt/disk3/tinvt/openssl-simcore
+                startedAt: "2026-04-08T06:09:15.419606Z"
+                writerId: hy2fq1h084kstngevrjpyeahd2g9840a
+        m: []
+        python_version: 3.10.12
+        t:
+            "1":
+                - 1
+                - 41
+                - 49
+                - 63
+                - 105
+            "2":
+                - 1
+                - 41
+                - 49
+                - 63
+                - 105
+            "3":
+                - 13
+                - 16
+            "4": 3.10.12
+            "5": 0.23.1
+            "8":
+                - 2
+            "12": 0.23.1
+            "13": linux-x86_64
+batch_size:
+    value: 128
+cosine:
+    value: false
+data_folder:
+    value: ./data/
+dataset:
+    value: aircraft
+e2e:
+    value: false
+epochs:
+    value: 2
+from_sl_official:
+    value: false
+from_ssl_official:
+    value: false
+img_size:
+    value: 224
+knn:
+    value: false
+label_ratio:
+    value: 1
+learning_rate:
+    value: 10
+lr_decay_epochs:
+    value:
+        - 60
+        - 80
+lr_decay_rate:
+    value: 0.1
+method:
+    value: simclr
+model:
+    value: resnet50
+model_name:
+    value: aircraft_resnet50_le_from_simclr_TEST_eval
+momentum:
+    value: 0.9
+multi_attribute:
+    value: ""
+n_cls:
+    value: 100
+num_workers:
+    value: 16
+optimizer:
+    value: sgd
+pretrained:
+    value: true
+pretrained_ckpt:
+    value: /mnt/disk3/tinvt/openssl-simcore/save/aircraft_resnet50_pretrain_simclr_merge_imagenet_TEST_simcore/last.pth
+print_freq:
+    value: 10
+save_dir:
+    value: ./save
+save_folder:
+    value: ./save/aircraft_resnet50_le_from_simclr_TEST_eval
+save_freq:
+    value: 1000
+seed:
+    value: 0
+semi:
+    value: false
+tag:
+    value: TEST_eval
+topk:
+    value: null
+wandb_project:
+    value: openssl-simcore
+warm:
+    value: false
+warm_epochs:
+    value: 0
+wd_scheduler:
+    value: false
+weight_decay:
+    value: 0

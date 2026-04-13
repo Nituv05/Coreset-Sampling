@@ -1,0 +1,196 @@
+_wandb:
+    value:
+        cli_version: 0.23.1
+        e:
+            pawf1ma8cd3gacou689bqj2s3cyja5dv:
+                args:
+                    - --tag
+                    - simcore_aircraft_in100_stop
+                    - --merge_dataset
+                    - --model
+                    - resnet50
+                    - --batch_size
+                    - "128"
+                    - --precision
+                    - --dataset1
+                    - aircraft
+                    - --dataset2
+                    - imagenet
+                    - --data_folder1
+                    - ./data
+                    - --data_folder2
+                    - ./data/CLS-LOC
+                    - --method
+                    - simclr
+                    - --epochs
+                    - "200"
+                    - --cosine
+                    - --optimizer
+                    - sgd
+                    - --learning_rate
+                    - "1e-1"
+                    - --weight_decay
+                    - "1e-4"
+                    - --sampling_method
+                    - simcore
+                    - --retrieval_ckpt
+                    - ./save/baseline_aircraft/last.pth
+                    - --cluster_num
+                    - "100"
+                    - --stop
+                    - --stop_thresh
+                    - "0.95"
+                codePath: train_selfsup.py
+                codePathLocal: train_selfsup.py
+                email: tinbgbg05@gmail.com
+                executable: /mnt/disk1/miniconda3/envs/tindl/bin/python
+                git:
+                    commit: 97b4c9e6492a24d833d6391f203dad1793a08aa6
+                    remote: https://github.com/sungnyun/openssl-simcore
+                host: vaipe-Z790-UD-AX
+                os: Linux-5.15.0-139-generic-x86_64-with-glibc2.31
+                program: /mnt/disk3/tinvt/openssl-simcore/train_selfsup.py
+                python: CPython 3.10.12
+                root: /mnt/disk3/tinvt/openssl-simcore
+                startedAt: "2026-03-27T16:50:04.821548Z"
+                writerId: pawf1ma8cd3gacou689bqj2s3cyja5dv
+        m: []
+        python_version: 3.10.12
+        t:
+            "1":
+                - 1
+                - 5
+                - 41
+                - 49
+                - 53
+                - 63
+                - 105
+            "2":
+                - 1
+                - 5
+                - 41
+                - 49
+                - 53
+                - 63
+                - 105
+            "3":
+                - 13
+                - 16
+            "4": 3.10.12
+            "5": 0.23.1
+            "8":
+                - 2
+            "12": 0.23.1
+            "13": linux-x86_64
+batch_size:
+    value: 128
+clip_grad:
+    value: 0
+cluster_num:
+    value: 100
+cosine:
+    value: true
+data_folder:
+    value: ./data/
+data_folder1:
+    value: ./data
+data_folder2:
+    value: ./data/CLS-LOC
+dataset:
+    value: aircraft
+dataset1:
+    value: aircraft
+dataset2:
+    value: imagenet
+ema_scheduler:
+    value: true
+epochs:
+    value: 200
+freeze_last_layer:
+    value: 0
+freeze_prototypes:
+    value: 1
+from_ssl_official:
+    value: false
+img_size:
+    value: 224
+initial_ema:
+    value: 0.996
+initial_temp:
+    value: 0.04
+learning_rate:
+    value: 0.1
+local_crops_number:
+    value: 0
+lr_decay_epochs:
+    value:
+        - 200
+        - 300
+lr_decay_rate:
+    value: 0.1
+mask_ratio:
+    value: 0.75
+merge_dataset:
+    value: true
+method:
+    value: simclr
+model:
+    value: resnet50
+model_name:
+    value: aircraft_resnet50_pretrain_simclr_merge_imagenet_simcore_aircraft_in100_stop
+momentum:
+    value: 0.9
+n_cls:
+    value: 100
+no_sampling:
+    value: false
+norm_pix_loss:
+    value: false
+num_workers:
+    value: 16
+optimizer:
+    value: sgd
+patience:
+    value: 20
+precision:
+    value: true
+print_freq:
+    value: 10
+prototypes:
+    value: 100
+resume:
+    value: null
+retrieval_ckpt:
+    value: ./save/baseline_aircraft/last.pth
+sampling_method:
+    value: simcore
+sampling_ratio:
+    value: 0
+sampling_times:
+    value: 1
+save_dir:
+    value: ./save
+save_folder:
+    value: ./save/aircraft_resnet50_pretrain_simclr_merge_imagenet_simcore_aircraft_in100_stop
+save_freq:
+    value: 1000
+seed:
+    value: 0
+stop:
+    value: true
+stop_thresh:
+    value: 0.95
+tag:
+    value: simcore_aircraft_in100_stop
+temp_warmup_epochs:
+    value: 0
+warm:
+    value: false
+warm_epochs:
+    value: 0
+wd_scheduler:
+    value: false
+weight_decay:
+    value: 0.0001
+weight_decay_end:
+    value: 0

@@ -1,0 +1,15 @@
+{"time":"2026-03-28T02:21:55.685073568+07:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2026-03-28T02:21:56.294351644+07:00","level":"INFO","msg":"stream: created new stream","id":"z7biwpju"}
+{"time":"2026-03-28T02:21:56.294703405+07:00","level":"INFO","msg":"stream: started","id":"z7biwpju"}
+{"time":"2026-03-28T02:21:56.294768334+07:00","level":"INFO","msg":"writer: started","stream_id":"z7biwpju"}
+{"time":"2026-03-28T02:21:56.29479393+07:00","level":"INFO","msg":"sender: started","stream_id":"z7biwpju"}
+{"time":"2026-03-28T02:21:56.294936131+07:00","level":"INFO","msg":"handler: started","stream_id":"z7biwpju"}
+{"time":"2026-03-28T02:36:23.005689514+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/tinbgbg05-ai4life/openssl-simcore/z7biwpju/file_stream\": dial tcp: lookup api.wandb.ai on 127.0.0.53:53: read udp 127.0.0.1:52213->127.0.0.53:53: i/o timeout"}
+{"time":"2026-03-28T02:36:52.550214191+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/tinbgbg05-ai4life/openssl-simcore/z7biwpju/file_stream\": dial tcp: lookup api.wandb.ai on 127.0.0.53:53: dial udp 127.0.0.53:53: i/o timeout"}
+{"time":"2026-03-28T02:37:07.448767973+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/tinbgbg05-ai4life/openssl-simcore/z7biwpju/file_stream\": dial tcp: lookup api.wandb.ai on 127.0.0.53:53: read udp 127.0.0.1:58069->127.0.0.53:53: i/o timeout"}
+{"time":"2026-03-28T02:47:36.793960537+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-03-28T02:47:37.614349833+07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-03-28T02:47:37.635249639+07:00","level":"INFO","msg":"stream: closing","id":"z7biwpju"}
+{"time":"2026-03-28T02:47:37.635279825+07:00","level":"INFO","msg":"handler: closed","stream_id":"z7biwpju"}
+{"time":"2026-03-28T02:47:37.635367122+07:00","level":"INFO","msg":"sender: closed","stream_id":"z7biwpju"}
+{"time":"2026-03-28T02:47:37.635372032+07:00","level":"INFO","msg":"stream: closed","id":"z7biwpju"}

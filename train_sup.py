@@ -3,7 +3,6 @@ import sys
 import json
 import warnings
 warnings.filterwarnings("ignore")
-
 import math
 import time
 import random
@@ -15,11 +14,14 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import models, transforms, datasets
+import argparse
+import wandb # Bổ sung wandb
 
 from models import get_backbone_class
 from util.semisup_dataset import ImageFolderSemiSup
 from util.knn_evaluation import KNNValidation
 from util.misc import *
+torch.serialization.add_safe_globals([argparse.Namespace])
 
 DATASET_CONFIG = {'cars': 196, 'flowers': 102, 'pets': 37, 'aircraft': 100, 'cub': 200, 'dogs': 120, 'mit67': 67,
                   'stanford40': 40, 'dtd': 47, 'celeba': 307, 'food11': 11, 'imagenet': 1000}
@@ -79,6 +81,10 @@ def parse_args():
                         help='ratio for the number of labeled sample (refer to Table 7b)')
     parser.add_argument('--multi_attribute', type=str, default='', 
                         help='multi-attribute setting for cars, aircraft, celeba dataset (refer to Table 7d)')
+
+    # Cấu hình dự án WandB (Có thể thay đổi tên tuỳ ý)
+    parser.add_argument('--wandb_project', type=str, default='openssl-simcore',
+                        help='WandB project name')
 
     args = parser.parse_args()
 
@@ -226,7 +232,7 @@ def set_model(args):
     criterion = nn.CrossEntropyLoss()
 
     if args.pretrained and args.pretrained_ckpt is not None:
-        ckpt = torch.load(args.pretrained_ckpt, map_location='cpu')
+        ckpt = torch.load(args.pretrained_ckpt, map_location='cpu', weights_only=False)
         state_dict = ckpt['model']
 
         # HOTFIX: always dataparallel during pretraining
@@ -261,10 +267,8 @@ def set_model(args):
         else:
             raise NotImplemented
 
-    if torch.cuda.device_count() > 1:
+    if torch.cuda.device_count() >= 1:
         model = torch.nn.DataParallel(model)
-    else:
-        raise NotImplementedError
         
     model.cuda()
     classifier.cuda()
@@ -335,10 +339,17 @@ def train(train_loader, model, classifier, criterion, optimizer, epoch, args):
                    data_time=data_time, loss=losses, top1=top1))
             sys.stdout.flush()
 
+    # W&B Logging
+    wandb.log({
+        'Train Loss': losses.avg,
+        'Train Acc': top1.avg,
+        'Epoch': epoch
+    })
+
     return losses.avg, top1.avg
 
 
-def validate(val_loader, model, classifier, criterion, args, best_acc, best_model):
+def validate(val_loader, model, classifier, criterion, args, best_acc, best_model, epoch=None):
     model.eval()
     classifier.eval()
 
@@ -374,12 +385,32 @@ def validate(val_loader, model, classifier, criterion, args, best_acc, best_mode
     best_acc, bool = get_best_acc(top1.avg, top5.avg, best_acc)
     if bool:
         best_model = deepcopy(model.state_dict())
+    
+    # W&B Logging
+    log_dict = {
+        'Val Loss': losses.avg,
+        'Val Acc@1': top1.avg,
+        'Val Acc@5': top5.avg,
+        'Best Acc@1': best_acc[0]
+    }
+    if epoch is not None:
+        log_dict['Epoch'] = epoch
+    wandb.log(log_dict)
 
     return best_acc, best_model
 
 
 def main():
     args = parse_args()
+
+    # Bắt đầu W&B
+    run_name = f"{args.dataset}_{args.tag}" if args.tag else f"{args.dataset}_{args.model_name}"
+    wandb.init(
+        project=args.wandb_project,
+        name=run_name,
+        config=vars(args)
+    )
+
     with open(os.path.join(args.save_folder, 'train_args.json'), 'w') as f:
         json.dump(vars(args), f, indent=4)
 
@@ -398,6 +429,8 @@ def main():
         knn = KNNValidation(args)
         knn_acc = knn.topk_retrieval(model)
         best_acc += knn_acc
+        # Ghi log riêng cho KNN
+        wandb.log({'KNN Acc': knn_acc[0]})
     
     for epoch in range(1, args.epochs+1):
         adjust_lr_wd(args, optimizer, epoch)
@@ -411,7 +444,7 @@ def main():
         best_acc[2] = acc.item()
         
         # eval for one epoch
-        best_acc, best_model = validate(val_loader, model, classifier, criterion, args, best_acc, best_model)
+        best_acc, best_model = validate(val_loader, model, classifier, criterion, args, best_acc, best_model, epoch)
 
         if epoch % args.save_freq == 0:
             save_file = os.path.join(args.save_folder, 'epoch_{}.pth'.format(epoch))
@@ -421,6 +454,9 @@ def main():
     model.load_state_dict(best_model)
     save_model(model, optimizer, args, epoch, save_file)
     update_json('%s' % args.model_name, best_acc, path=os.path.join(args.save_dir, 'results.json'))
+
+    # Kết thúc W&B
+    wandb.finish()
 
 
 if __name__ == '__main__':
