@@ -1,4 +1,4 @@
-# OpenSSL-SimCore (CVPR 2023)
+#References: OpenSSL-SimCore (CVPR 2023)
 
 <a href='https://arxiv.org/abs/2303.11101'><img src='https://img.shields.io/badge/Paper-arXiv:2303.11101-Green'></a>
 <a href='https://www.youtube.com/watch?v=f_-dIVRo8Q8'><img src='https://img.shields.io/badge/YouTube-Video-red'></a> 
