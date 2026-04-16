@@ -1,0 +1,161 @@
+_wandb:
+    value:
+        cli_version: 0.23.1
+        e:
+            g0n47rldobvl80mfivf4ej8anxxjwjul:
+                args:
+                    - --tag
+                    - TEST_eval
+                    - --dataset
+                    - aircraft
+                    - --model
+                    - resnet50
+                    - --batch_size
+                    - "128"
+                    - --data_folder
+                    - ./data/
+                    - --pretrained
+                    - --pretrained_ckpt
+                    - /mnt/disk3/tinvt/openssl-simcore/save/aircraft_resnet50_pretrain_simclr_merge_imagenet_TEST_simcore/last.pth
+                    - --method
+                    - simclr
+                    - --epochs
+                    - "200"
+                    - --learning_rate
+                    - "10"
+                    - --weight_decay
+                    - "0"
+                    - --num_workers
+                    - "16"
+                codePath: train_sup.py
+                codePathLocal: train_sup.py
+                cpu_count: 24
+                cpu_count_logical: 32
+                cudaVersion: "12.2"
+                disk:
+                    /:
+                        total: "502392610816"
+                        used: "354573647872"
+                email: tinbgbg05@gmail.com
+                executable: /mnt/disk1/miniconda3/envs/tindl/bin/python
+                git:
+                    commit: e5efa75966805f224a8558485140f6dbafb233ff
+                    remote: https://github.com/Nituv05/Coreset-Sampling.git
+                gpu: NVIDIA GeForce RTX 4090
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ada
+                      cudaCores: 16384
+                      memoryTotal: "25757220864"
+                      name: NVIDIA GeForce RTX 4090
+                      uuid: GPU-131c9a56-60f2-3bb0-7b04-575a2e52bd15
+                host: vaipe-Z790-UD-AX
+                memory:
+                    total: "67163844608"
+                os: Linux-5.15.0-139-generic-x86_64-with-glibc2.31
+                program: /mnt/disk3/tinvt/openssl-simcore/train_sup.py
+                python: CPython 3.10.12
+                root: /mnt/disk3/tinvt/openssl-simcore
+                startedAt: "2026-04-15T19:28:15.566772Z"
+                writerId: g0n47rldobvl80mfivf4ej8anxxjwjul
+        m: []
+        python_version: 3.10.12
+        t:
+            "1":
+                - 1
+                - 41
+                - 49
+                - 63
+                - 105
+            "2":
+                - 1
+                - 41
+                - 49
+                - 63
+                - 105
+            "3":
+                - 2
+                - 13
+                - 16
+            "4": 3.10.12
+            "5": 0.23.1
+            "8":
+                - 2
+            "12": 0.23.1
+            "13": linux-x86_64
+batch_size:
+    value: 128
+cosine:
+    value: false
+data_folder:
+    value: ./data/
+dataset:
+    value: aircraft
+e2e:
+    value: false
+epochs:
+    value: 200
+from_sl_official:
+    value: false
+from_ssl_official:
+    value: false
+img_size:
+    value: 224
+knn:
+    value: false
+label_ratio:
+    value: 1
+learning_rate:
+    value: 10
+lr_decay_epochs:
+    value:
+        - 60
+        - 80
+lr_decay_rate:
+    value: 0.1
+method:
+    value: simclr
+model:
+    value: resnet50
+model_name:
+    value: aircraft_resnet50_le_from_simclr_TEST_eval
+momentum:
+    value: 0.9
+multi_attribute:
+    value: ""
+n_cls:
+    value: 100
+num_workers:
+    value: 16
+optimizer:
+    value: sgd
+pretrained:
+    value: true
+pretrained_ckpt:
+    value: /mnt/disk3/tinvt/openssl-simcore/save/aircraft_resnet50_pretrain_simclr_merge_imagenet_TEST_simcore/last.pth
+print_freq:
+    value: 10
+save_dir:
+    value: ./save
+save_folder:
+    value: ./save/aircraft_resnet50_le_from_simclr_TEST_eval
+save_freq:
+    value: 1000
+seed:
+    value: 0
+semi:
+    value: false
+tag:
+    value: TEST_eval
+topk:
+    value: null
+wandb_project:
+    value: openssl-simcore
+warm:
+    value: false
+warm_epochs:
+    value: 0
+wd_scheduler:
+    value: false
+weight_decay:
+    value: 0

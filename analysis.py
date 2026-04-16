@@ -7,7 +7,7 @@ from PIL import Image
 from torchvision.models import resnet50, ResNet50_Weights
 
 # ================= CẤU HÌNH =================
-ckpt_path = "./save/aircraft_resnet50_pretrain_simclr_merge_imagenet_TEST_simcore_200_epochs/last.pth"
+ckpt_path = "/mnt/disk3/tinvt/openssl-simcore/save/aircraft_resnet50_pretrain_simclr_merge_imagenet_TEST_simcore/last.pth"
 imagenet_dir = "./data/CLS-LOC/train"
 # ============================================
 
@@ -28,7 +28,7 @@ selected_folders = [idx_to_folder[dataset.targets[idx]] for idx in indices]
 
 # Đếm tần suất và lấy Top 20
 counter = Counter(selected_folders)
-top_20_folders = counter.most_common(20)
+top_20_folders = counter.most_common(30)
 
 print("3. Đang triệu hồi AI 'Phiên dịch viên' (ResNet-50)...")
 # Khởi tạo model và đẩy lên GPU cho nhanh
@@ -89,6 +89,6 @@ plt.title(f'Top 20 Classes được SimCore chọn nhiều nhất (Tổng: {len(
 plt.grid(axis='x', linestyle='--', alpha=0.7)
 plt.tight_layout()
 
-output_file = "auto_decoded_distribution.png"
+output_file = "res.png"
 plt.savefig(output_file, dpi=300)
 print(f"Hoàn tất! Đã lưu biểu đồ tự động dịch vào file: {output_file}")

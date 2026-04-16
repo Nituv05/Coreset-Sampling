@@ -4,13 +4,13 @@ import shutil
 import random
 from torchvision import datasets
 
-ckpt_path = "/mnt/disk3/tinvt/openssl-simcore/save/aircraft_resnet50_pretrain_simclr_merge_imagenet_TEST_simcore_200_epochs/last.pth"
+ckpt_path = "/mnt/disk3/tinvt/openssl-simcore/save/aircraft_resnet50_pretrain_simclr_merge_imagenet_TEST_simcore/last.pth"
 
 # 2. Đường dẫn gốc tới tập ImageNet
 imagenet_dir = "./data/CLS-LOC/train"
 
 # 3. Thư mục bạn muốn xuất ảnh ra để xem
-output_dir = "./view_coreset_samples_200_epochs"
+output_dir = "./view_sample"
 # os.makedirs(output_dir, exist_ok=True)
 
 print("Đang tải checkpoint...")

@@ -1,0 +1,29 @@
+pretrained retrieval model loaded from: /mnt/disk3/tinvt/openssl-simcore/save/aircraft_pretrain_TEST_baseline/last.pth
+Traceback (most recent call last):
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 475, in <module>
+    main()
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 434, in main
+    selected_indices, model, args = get_selected_indices(model, args)
+  File "/mnt/disk3/tinvt/openssl-simcore/util/sampling.py", line 133, in get_selected_indices
+    model.load_state_dict(torch.load(args.retrieval_ckpt, weights_only=False)['model'])
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 1484, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 759, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 740, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/disk3/tinvt/openssl-simcore/save/aircraft_pretrain_TEST_baseline/last.pth'
+Traceback (most recent call last):
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 475, in <module>
+    main()
+  File "/mnt/disk3/tinvt/openssl-simcore/train_selfsup.py", line 434, in main
+    selected_indices, model, args = get_selected_indices(model, args)
+  File "/mnt/disk3/tinvt/openssl-simcore/util/sampling.py", line 133, in get_selected_indices
+    model.load_state_dict(torch.load(args.retrieval_ckpt, weights_only=False)['model'])
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 1484, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 759, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 740, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/disk3/tinvt/openssl-simcore/save/aircraft_pretrain_TEST_baseline/last.pth'
