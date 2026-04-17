@@ -84,6 +84,7 @@ for DATA in "${DATASETS[@]}"; do
     echo "-----------------------------------------------------"
     
     sleep 5
+done
 ```    
 Chạy script
 ```chmod +x train.sh```
