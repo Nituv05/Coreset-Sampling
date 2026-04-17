@@ -1,0 +1,13 @@
+{"time":"2026-04-17T09:58:49.571818175+07:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2026-04-17T09:58:50.036353752+07:00","level":"INFO","msg":"stream: created new stream","id":"76uug177"}
+{"time":"2026-04-17T09:58:50.036425774+07:00","level":"INFO","msg":"handler: started","stream_id":"76uug177"}
+{"time":"2026-04-17T09:58:50.036442053+07:00","level":"INFO","msg":"stream: started","id":"76uug177"}
+{"time":"2026-04-17T09:58:50.03644736+07:00","level":"INFO","msg":"writer: started","stream_id":"76uug177"}
+{"time":"2026-04-17T09:58:50.036453724+07:00","level":"INFO","msg":"sender: started","stream_id":"76uug177"}
+{"time":"2026-04-17T10:00:45.555245508+07:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/tinbgbg05-ai4life/openssl-simcore/76uug177/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2026-04-17T10:32:30.018463+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-04-17T10:32:44.969969219+07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-04-17T10:32:44.979983116+07:00","level":"INFO","msg":"stream: closing","id":"76uug177"}
+{"time":"2026-04-17T10:32:44.979992933+07:00","level":"INFO","msg":"handler: closed","stream_id":"76uug177"}
+{"time":"2026-04-17T10:32:44.980033442+07:00","level":"INFO","msg":"sender: closed","stream_id":"76uug177"}
+{"time":"2026-04-17T10:32:44.980037822+07:00","level":"INFO","msg":"stream: closed","id":"76uug177"}

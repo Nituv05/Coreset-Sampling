@@ -110,7 +110,7 @@ def parse_args():
     # arguments for sampling
     parser.add_argument('--no_sampling', action='store_true',
                         help='vanilla selfsup without sampling')
-    parser.add_argument('--sampling_method', default='simcore', type=str, choices=['random', 'simcore'],
+    parser.add_argument('--sampling_method', default='simcore', type=str, choices=['random', 'simcore', 'craig'],
                         help='strategy to sampling from openset')
     parser.add_argument('--retrieval_ckpt', default=None, type=str,
                         help='pretrained checkpoint for a retrieval model')

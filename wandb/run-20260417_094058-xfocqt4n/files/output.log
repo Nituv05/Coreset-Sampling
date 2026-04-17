@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 463, in <module>
+    main()
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 424, in main
+    model, classifier, criterion, optimizer = set_model(args)
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 235, in set_model
+    ckpt = torch.load(args.pretrained_ckpt, map_location='cpu', weights_only=False)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 1491, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 771, in __init__
+    super().__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
+Traceback (most recent call last):
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 463, in <module>
+    main()
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 424, in main
+    model, classifier, criterion, optimizer = set_model(args)
+  File "/mnt/disk3/tinvt/openssl-simcore/train_sup.py", line 235, in set_model
+    ckpt = torch.load(args.pretrained_ckpt, map_location='cpu', weights_only=False)
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 1491, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/mnt/disk1/miniconda3/envs/tindl/lib/python3.10/site-packages/torch/serialization.py", line 771, in __init__
+    super().__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory

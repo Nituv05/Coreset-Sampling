@@ -123,7 +123,126 @@ def simcore_sampling(model, args):
         model.backbone.set_mask_ratio(mask_ratio=args.mask_ratio)
     return list(selected_indices)
 
+##########################################
+def craig_sampling(model, args):
+    from train_selfsup import get_dataset
+    import torch.nn.functional as F
 
+    sample_dataset1 = get_dataset(args, args.dataset1, args.data_folder1, val=True)
+    sample_dataset2 = get_dataset(args, args.dataset2, args.data_folder2, val=True)
+
+    if args.stop:
+        sampling_nums = 50 * len(sample_dataset1)
+    else:
+        sampling_nums = int(args.sampling_ratio * len(sample_dataset2))
+
+    dataloader1 = torch.utils.data.DataLoader(sample_dataset1, batch_size=args.batch_size, shuffle=False, num_workers=4)
+    dataloader2 = torch.utils.data.DataLoader(sample_dataset2, batch_size=args.batch_size, shuffle=False, num_workers=8)
+    model.eval()
+
+    def compute_ssl_gradient(images):
+        """Trả về grad_vector (CPU Tensor) hoặc raise RuntimeError."""
+        model.zero_grad()
+        img = images.cuda(non_blocking=True)
+
+        with torch.enable_grad():
+            features = model.forward_features(img)
+            pseudo_loss = features.norm(dim=1).mean()
+            pseudo_loss.backward()
+
+        # Thu thập gradient SAU khi thoát context (tránh side-effect)
+        valid_grads = []
+        for param in model.parameters():
+            if param.grad is not None:
+                valid_grads.append(param.grad.detach().cpu().view(-1))
+
+        model.zero_grad()  # Dọn sau khi đã thu thập xong
+
+        if len(valid_grads) == 0:
+            raise RuntimeError(
+                "Không tìm thấy gradient nào. Kiểm tra lại model có bị frozen hoàn toàn không."
+            )
+
+        # Chỉ lấy 2 layer cuối để tiết kiệm bộ nhớ
+        grad_vector = torch.cat(valid_grads[-2:] if len(valid_grads) >= 2 else valid_grads)
+
+        return grad_vector  # ← return nằm NGOÀI with block, đảm bảo luôn được thực thi
+
+    # ===========================================
+    # PHASE 1: TÍNH TARGET GRADIENTS CỦA DATASET1
+    # ===========================================
+    target_grads = []
+    for images, _ in tqdm(dataloader1, desc="Phase 1: Target Gradients"):
+        img_batch = images[0] if isinstance(images, list) else images
+        grad_v = compute_ssl_gradient(img_batch)
+
+        # Validation ngay tại đây để lỗi không bị ẩn đến torch.stack
+        assert isinstance(grad_v, torch.Tensor), \
+            f"compute_ssl_gradient trả về {type(grad_v)}, expected Tensor"
+        target_grads.append(grad_v)
+
+    if len(target_grads) == 0:
+        raise RuntimeError("target_grads rỗng — dataloader1 không có dữ liệu?")
+
+    target_grads = torch.stack(target_grads)  # [num_batches, grad_dim]
+
+    # K-Means trên Gradient
+    if args.cluster_num < len(target_grads):
+        print('Clustering Target Gradients...')
+        kmeans = KMeans(n_clusters=args.cluster_num, random_state=0).fit(target_grads.numpy())
+        grad_centroids = torch.tensor(kmeans.cluster_centers_).cuda()
+    else:
+        grad_centroids = target_grads.cuda()
+
+    grad_centroids = F.normalize(grad_centroids, p=2, dim=1)
+    del dataloader1
+
+    # ==========================================
+    # PHASE 2: TÍNH POOL GRADIENTS CỦA DATASET2
+    # ==========================================
+    sim = []
+    batch_sizes = []  # ← track actual batch size để map index chính xác
+
+    for idx, (images, _) in tqdm(enumerate(dataloader2), desc="Phase 2: Pool Gradients"):
+        img_batch = images[0] if isinstance(images, list) else images
+        batch_sizes.append(len(img_batch))  # batch cuối có thể nhỏ hơn args.batch_size
+
+        pool_grad = compute_ssl_gradient(img_batch).cuda()
+        pool_grad = F.normalize(pool_grad.unsqueeze(0), p=2, dim=1)  # [1, grad_dim]
+
+        similarity = torch.mm(grad_centroids, pool_grad.T).cpu()
+        sim.append(similarity)
+
+    sim = torch.cat(sim, dim=1)  # [cluster_num, num_batches]
+    print('Cosine similarity matrix of GRADIENTS is computed...')
+
+    # ==========================================
+    # PHASE 3: GREEDY ALGO (FACILITY LOCATION)
+    # ==========================================
+    num_batches_to_select = (sampling_nums // args.batch_size) + 1
+    selected_batch_indices = greedy(sim.T.cpu(), sampling_nums=num_batches_to_select)
+
+    # Map batch index → image index, dùng batch_sizes thực tế để tránh out-of-range
+    selected_indices = []
+    cumulative = [0]
+    for bs in batch_sizes:
+        cumulative.append(cumulative[-1] + bs)
+
+    for b_idx in selected_batch_indices:
+        if b_idx >= len(batch_sizes):
+            continue  # bỏ qua index không hợp lệ
+        start_idx = cumulative[b_idx]
+        end_idx = cumulative[b_idx + 1]
+        selected_indices.extend(range(start_idx, end_idx))
+        if len(selected_indices) >= sampling_nums:
+            break
+
+    selected_indices = selected_indices[:sampling_nums]
+    print('Complete! {:d} number of indices sampled via CRAIG.'.format(len(selected_indices)))
+    del dataloader2
+
+    return list(selected_indices)
+##########################################
 def get_selected_indices(model, args):
     init_ckpt = copy.deepcopy(model.state_dict())
     if args.sampling_method == 'random':
@@ -141,7 +260,7 @@ def get_selected_indices(model, args):
     else: 
         raise NotImplemented
 
-    SAMPLING = {'random': random_sampling, 'simcore': simcore_sampling}
+    SAMPLING = {'random': random_sampling, 'simcore': simcore_sampling, 'craig': craig_sampling}
     selected_indices = SAMPLING[args.sampling_method](model, args)
 
     if args.stop:

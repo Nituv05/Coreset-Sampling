@@ -1,0 +1,13 @@
+{"time":"2026-04-17T10:32:53.722012208+07:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2026-04-17T10:32:54.244858042+07:00","level":"INFO","msg":"stream: created new stream","id":"acztvedz"}
+{"time":"2026-04-17T10:32:54.244906361+07:00","level":"INFO","msg":"handler: started","stream_id":"acztvedz"}
+{"time":"2026-04-17T10:32:54.244966584+07:00","level":"INFO","msg":"stream: started","id":"acztvedz"}
+{"time":"2026-04-17T10:32:54.245038049+07:00","level":"INFO","msg":"writer: started","stream_id":"acztvedz"}
+{"time":"2026-04-17T10:32:54.245051408+07:00","level":"INFO","msg":"sender: started","stream_id":"acztvedz"}
+{"time":"2026-04-17T10:54:54.834239675+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/tinbgbg05-ai4life/openssl-simcore/acztvedz/file_stream\": dial tcp: lookup api.wandb.ai on 127.0.0.53:53: read udp 127.0.0.1:33052->127.0.0.53:53: i/o timeout"}
+{"time":"2026-04-17T11:23:05.595943423+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-04-17T11:23:32.333741314+07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-04-17T11:23:32.336185714+07:00","level":"INFO","msg":"stream: closing","id":"acztvedz"}
+{"time":"2026-04-17T11:23:32.336195001+07:00","level":"INFO","msg":"handler: closed","stream_id":"acztvedz"}
+{"time":"2026-04-17T11:23:32.336235365+07:00","level":"INFO","msg":"sender: closed","stream_id":"acztvedz"}
+{"time":"2026-04-17T11:23:32.336245938+07:00","level":"INFO","msg":"stream: closed","id":"acztvedz"}
